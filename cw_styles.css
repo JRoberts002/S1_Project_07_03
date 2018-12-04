@@ -26,7 +26,8 @@
    ===============================
 */
 
-nav#bottom ul {
+/* This places the elements within the bottom nav side by side and centers them. */
+nav#bottom {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row nowrap;
@@ -34,7 +35,8 @@ nav#bottom ul {
     justify-content: center;
 }
 
-nav#bottom ul li {
+/* This sets the base width of the lists within the bottom nav to 150px, no grow rate, and a shrink rate of 1. */
+nav#bottom ul {
     -webkit-flex: 0 1 150px;
     flex: 0 1 150px;
 }
@@ -44,18 +46,23 @@ nav#bottom ul li {
    ===============================
 */
 
+/* Sets the inclusive styles to only apply to mobile devices. */
 @media only screen and (max-width: 480px) {
+
+    /* This sets the text background and colors. */
     body {
         color: rgb(211, 211, 211);
         background-color: rgb(51, 51, 51);
     }
 
+    /* This hides the inclusive section, aside, and image. */
     aside,
     article img,
     section#spotlight {
         display: none;
     }
 
+    /* This sets the top nav as a flexbox arranged as a row wrap. */
     nav#top ul {
         display: -webkit-flex;
         display: flex;
@@ -63,12 +70,14 @@ nav#bottom ul li {
         flex-flow: row wrap;
     }
 
+    /* This sets the basis, grow, and shrink values of the text within the top nav. */
     nav#top ul li {
         font-size: 2.2em;
         -webkit-flex: 1 1 130px;
         flex: 1 1 130px;
     }
 
+    /* The following six styles set and format the background images of the items in the top nav. */
     nav#top ul li:nth-of-type(1) {
         background: url(cw_image01.png) center center / 100% no-repeat;
     }
@@ -93,6 +102,7 @@ nav#bottom ul li {
         background: url(cw_image06.png) center center / 100% no-repeat;
     }
 
+    /* This sets the link paragraph text to row nowrap with space between the links and the border. */
     p#links {
         display: -webkit-flex;
         display: flex;
@@ -101,34 +111,67 @@ nav#bottom ul li {
         justify-content: space-around;
     }
 
+    /* This styles the text in the link paragraph. */
     p#links a {
         color: rgb(220, 27, 27);
         border-radius: 20px;
         padding: 10px;
         text-decoration: none;
     }
+}
 
 
-    /*  ============================================
+/*  ============================================
 	Tablet and Desktop Devices: 481px or more 
    ============================================
 */
 
-    @media only screen and (min-width: 481px) {
-        body {
-            display: -webkit-flex;
-            display: flex;
-            -webkit-flex-flow: row wrap;
-            flex-flow: row wrap;
-        }
+/* This sets the incluive styles to only apply to tablet and desktop styles. */
+@media only screen and (min-width: 481px) {
 
-        article {
-            -webkit-flex: 2 1 400;
-            flex: 2 1 400;
-        }
-
-        aside {
-            -webkit-flex: 1 2 200;
-            flex: 1 2 200;
-        }
+    /* This sets the body as a flexbox that arranges in a row that wraps. */
+    body {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
     }
+
+    /* This sets the grow rate to 2, shrink rate to 1, and base size to 400px. */
+    article {
+        -webkit-flex: 2 1 400px;
+        flex: 2 1 400px;
+    }
+
+    /* This sets the growrate to 1, shrink rate to 2, and base size to 200px. */
+    aside {
+        -webkit-flex: 1 2 200px;
+        flex: 1 2 200px;
+    }
+
+    /* This arranges the top nav as a row that doesn't wrap. */
+    nav#top {
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    }
+
+    /* This formats and styles the top nav text. */
+    nav#top ul {
+        display: -webkit-flex;
+        display: flex;
+        background-color: rgb(51, 51, 51);
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* This sets the base width of the top nav items. */
+    nav#top li {
+        flex: 1 1 80px
+    }
+
+    /* This hides the links paragraph. */
+    p#links {
+        display: none;
+    }
+}
